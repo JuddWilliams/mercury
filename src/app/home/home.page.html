@@ -1,22 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Test </ion-title>
+    <ion-title text-left>
+      <a target="_blank" href="https://github.com/15Dkatz/official_joke_api"
+        >View API docs</a
+      ></ion-title
+    >
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="getJoke()">
+        Get A New Random Joke</ion-button
+      >
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Test</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <strong
-      >Here's a random joke.. stick around for 10 seconds and get
-      another'</strong
+    <p id="joke-text">{{currentJoke}}</p>
+    <p *ngIf="showPunchline===true">{{currentJokePunchLine}}</p>
+    <ion-button id="show-punchline-btn" (click)="getPunchline()"
+      >{{buttonText}}</ion-button
     >
-    (<a (click)="getJoke()">can't wait?</a>)
-    <p id="id-joke">{{currentJoke}}</p>
   </div>
 </ion-content>
